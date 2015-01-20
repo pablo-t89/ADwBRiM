@@ -1,0 +1,138 @@
+Zadania 1
+
+1. Utworzyć na trzy sposoby: (c, :, seq) wektor składający się z elementów 4,3,2,1,0.
+
+2. Wypisać (możliwie jak najkrótszą instrukcją) trzecie potęgi liczb od 1 do 20.
+
+3. Wypisać (możliwie jak najkrótszą instrukcją) kwadraty liczb parzystych od 10 do 30.
+
+4. Podać (możliwie jak najkrótszą instrukcją) sumę sześcianów liczb od 1 do 98.
+
+5*. Obliczyć średni zarobek dla danych z pliku Wyk_Zarobki.xls 
+
+
+
+Zadania 1b
+
+1. Wyznaczyć macierz odwrotną do iloczynu macierzy
+[  5   1 ]
+[  2  -1 ]
+[ -2   8 ]
+i
+[  1   3   3 ]
+[  2   1   5 ].
+
+2. Napisać funkcję sumdiag(A), która dla macierzy A zwraca w wyniku macierz diagonalną zawierającą na głównej przekątnej, na i-tej pozycji, sumę elementów leżących w i-tym wierszu i w i-tej kolumnie macierzy A.
+
+3*. Niech skc:N->N oznacza funkcję, która naturalnej liczbie n przyporządkowuje sumę kwadratów jej cyfr. Udowodnić, że jeśli dla dowolnej liczby naturalnej x utworzymy ciąg liczbowy, zadany przez warunki x_0=x, x_i=skc(x_(i-1)) dla i całkowitego dodatniego, to będzie on zawierał liczbę 1 lub 4.
+
+
+
+Zadania 1c
+
+1. Napisać funkcję, która dla zadanego argumentu n podaje ile cyfr ma n!. Funkcja powinna działać dla dużych n.
+
+2. Napisać funkcję, która dla zadanego argumentu n podaje ile zer na końcu ma liczba n!.
+
+
+
+Zadania 2
+
+1. Dla danych zawartych w pliku wzrost.csv (próbka statystyczna opisująca wzrost dorosłego mężczyzny w Polsce) wyznaczyć podstawowe statystyki opisowe:
+ - mediana, kwartyle, rozstęp;
+ - średnia, wariancja - wraz z przedziałem ufności na poziomie 0,9;
+ - skośność i kurtoza
+
+2. Dla danych zawartych w pliku zakupy.csv (próbka opisująca kwotę zakupów w sklepie wielkopowierzchniowym w zależności od pewnych cech klienta) obliczyć wybrane statystyki z podziałem na kobiety i mężczyzn:
+ - średnia, wariancja;
+ - mediana, kwartyle, rozstęp;
+ - skośność i kurtoza
+
+3. Wyznaczyć wartość oczekiwaną i wariancję rozkładu podanego w tabeli:
+wartość  1     2     3     4     5
+p-stwo   7/30  1/6   4/15  2/15  1/5
+
+4*. Napisać funkcję pu_test(n, mi, sigma, poziom), która:
+ - losuje n liczb z rozkładu normalnego N(mi, sigma)
+ - w oparciu o uzyskane dane wyznacza przedział ufności [x, y] dla średniej na poziomie poziom (przyjmując nieznaną wariancję)
+ - zwraca wartość TRUE, jeśli mi wpada do wyznaczonego przedziału i FALSE w przeciwnym razie.
+Utworzoną funkcję wykorzystać do następującego eksperymentu: policzyć ile razy wypadnie fałsz przy 1000 wykonaniach dla n=100 i poziom = 0.9.
+
+
+
+Zadania 2b
+
+1. Napisać funkcję statystyki(x), która dla zadanego wektora x będzie wyznaczać podstawowe statystyki opisowe z jego współrzędnych (przynajmniej średnią, odch. standardowe, skośność, kurtozę, mininum, maksimum). Następnie wylosować po 100 liczb z rozkładu N(0,1) zapisując wyniki w zmiennych x i y oraz wykonać tę funkcję dla x, y, x+y, x-y, p(x)+p( y), p(x)-p( y), gdzie p(w) oznacza wektor zawierający uporządkowane współrzędne wektora w.
+
+2. Napisać funkcję srednia_p(x, p) obliczającą średnią potęgową rzędu p elementów wektora x. Następnie dla 1500 liczb pseudolosowych, wylosowanych z rozkładu jednostajnego na przedziale [1,10], obliczyć średnią arytmetyczną, średnią harmoniczną, średnią geometryczną oraz średnią kwadratową (potęgową rzędu 2).
+
+3. Kierowca Formuły 1 podczas wyścigu o Grand Prix Monako (na torze Monte Carlo, a zresztą, czy ma to jakieś znaczenie?) przejeżdżał kolejne okrążenia toru ze średnimi prędkościami podanymi w pliku Formula1.csv. Z jaką średnią prędkością przejechał cały wyścig?
+
+4. Obliczyć medianę zarobków dla danych z pliku Wyk_Zarobki.xls
+
+
+
+Zadania 3
+
+1. Sporządzić wykres ramkowy (pudełkowy) dla wieku nowożeńców (dane Sluby.csv).
+(*) Czy liczba 25 wpada do przedziału ufności (na poziomie 95%) dla mediany wieku kobiety? A mężczyzny?
+
+2. Dla danych z pliku wzrost.csv sporządzić wykres zawierający:
+ - histogram (około 15 klas)
+ - jądrowy estymator gęstości
+ - gęstość rozkładu normalnego o parametrach estymowanych na podstawie danych
+
+3. Dane z pliku wzrost.csv rozłożyć w szereg rozdzielczy:
+ - o 15 klasach taki, że minimum jest środkiem pierwszego, a maksimum środkiem ostatniego przedziału
+ - (*) o 6 klasach, różnej długości, za to, w przybliżeniu, jednakowej liczności. W oparciu o ten szereg narysować histogram.
+
+4. Dla danych z pliku rdn2010.csv przedstawić jak wygląda pobór energii w godzinach 8-22 w różne dni tygodnia. Co by było, gdyby usunąć z danych dni wolne od pracy?
+
+
+
+Zadania 4
+
+1. Przetestować normalność dla danych z pliku wzrost.csv za pomocą testu chi-kwadrat, w oparciu o szereg rozdzielczy o 20 klasach o, w przybliżeniu, jednakowej liczności empirycznej.
+
+2. Przetestować normalność dla danych z pliku wzrost.csv za pomocą testu chi-kwadrat, w oparciu o szereg rozdzielczy o 15 klasach o jednakowej liczności teoretycznej (przykład z wykładu). Następnie wykonać ten sam test, ale przed utworzeniem szeregu rozdzielczego dokonać zaszumienia danych, zaburzając je o wartość z rozkładu jednostajnego na przedziale [-1/2, 1/2].
+
+3. Dla wszystkich (sześciu) par różnego wykształcenia (dane zakupy.csv) wykonać testy równości przeciętnego wydatku między grupami osób o danym wykształceniu.
+
+
+
+Zadania 5
+
+1. Podzielić dane z pliku zakupy.csv na trzy mniej więcej jednakowo liczne grupy ze względu na wiek klienta (powiedzmy Y, M, O). Następnie zbadać, czy różnica średnich wydatków w tych grupach jest istotna statystycznie.
+
+2. Wykonać zadanie podobne do poprzedniego, z tym, że podział na grupy uwzględniać ma także płeć klienta, dostając w ten sposób 6 grup (powiedzmy YW, MW, OW, YM, MM, OM).
+
+
+
+Zadania 6
+
+1. Dla danych z pliku wzrost_zal.csv zbadać, jak kolor oczu i kolor włosów wpływają na średni wzrost człowieka (z badanej populacji). Narysować wykresy ramkowe (uwaga: przedstawiają medianę), oraz oba wykresy interakcji. Dopuścić różną ilość obserwacji w grupach.
+
+2. Wykonać poprzednie zadanie ograniczając (w sposób losowy) próbkę tak, aby we wszystkich grupach było tyle samo obserwacji.
+
+3. Dla danych z pliku czas_wykonania.csv zbadać, jak zdobyte kwalifikacje oraz płeć pracownika wpływają na czas wykonania czynności.
+
+
+
+Zadania 7
+
+0. Dla danych zapisanych w pliku raty.csv:
+ - Utworzyć liniowe modele regresji opisujące zależność wydatku od dochodów klienta z uwzględnieniem decyzji o zakupie ratalnym:
+    - przyjmując, że linie regresji, dla różnych decyzji o ratach, są równoległe
+    - nie przyjmując powyższego założenia
+ - Dla obu modeli narysować wykresy linii regresji (oraz punktów danych)
+
+1. Utworzyć (i narysować wykres) model regresji liniowej opisujący zależność wydatku od (równocześnie) dochodów i wieku klienta
+
+2. Utworzyć (i narysować wykres) model regresji opisujący decyzję o zakupie na raty w zależności od wieku klienta.
+
+3. Dla danych z pliku test_regresji.csv dopasować krzywą obrazującą zależność y od x poprzez model regresji (parametrycznej) wielomianem stopnia 2. Narysować wykres.
+
+4. Dla powyższych danych dopasować krzywą metodą regresji lokalnie wielomianowej, z użyciem domyślnych opcji, a następnie zaobserwować wpływ parametrów sterujących (span i degree) na sposób dopasowania. Narysować odpowiednie wykresy.
+
+5. Dla tych samych danych dopasować krzywą metodą gładkich funkcji sklejanych z użyciem domyślnych opcji. Następnie zaobserwować wpływ parametru spar na sposób dopasowania. Narysować odpowiednie wykresy.
+
