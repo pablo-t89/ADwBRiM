@@ -136,3 +136,14 @@ Zadania 7
 
 5. Dla tych samych danych dopasować krzywą metodą gładkich funkcji sklejanych z użyciem domyślnych opcji. Następnie zaobserwować wpływ parametru spar na sposób dopasowania. Narysować odpowiednie wykresy.
 
+
+
+Kolokwium -- Zestaw 1
+
+1. Dla zbioru danych o irysach (jest wbudowany w język R, od razu dostępny pod zmienną iris) obliczyć średnią i wariancję ze względu na gatunek (Species). Czy różnice w średnich są istotne statystycznie?
+
+2. Narysuj jądrowy estymator gęstości oraz wykres kwantyl-kwantyl pozwalający określić normalność rozkładu długości kielicha setosy (Petal.Length – setosa).
+Sprawdź normalność rozkładu. Uwaga: próbka jest mała.
+
+3.Na podstawie zbioru danych poeci.csv sprawdzić, czy zachodzi zależność między miastem, a ulubionym poetą.
+
