@@ -49,8 +49,8 @@ tail(rdn) # Teraz lepiej!
 
 op = par(mfrow=c(1,2)) # Jeden wiersz z dwoma wykresami
 
-(sredniewgdni = aggregate(rdn$Przesy³8.22 ~ rdn$Dzieñ.Tyg, rdn, mean))
-barplot(sredniewgdni[,2], names=c("pon", "wto", "sro", "czw", "pia", "sob", "nie"))
+(srednie_wg_dni = aggregate(rdn$Przesy³8.22 ~ rdn$Dzieñ.Tyg, rdn, mean))
+barplot(srednie_wg_dni[,2], names=c("pon", "wto", "sro", "czw", "pia", "sob", "nie"))
 
 swieta = c(
     "2010-01-01", # Nowy Rok
@@ -66,11 +66,11 @@ swieta = c(
     "2010-12-26"  # Drugi dzien Swiat Bozego Narodzenia
 )
 
-poprawionedni = rdn$Dzieñ.Tyg
-poprawionedni[is.element(rdn$Data, swieta)] = NA
+poprawione_dni = rdn$Dzieñ.Tyg
+poprawione_dni[is.element(rdn$Data, swieta)] = NA
 
-(sredniewgpdni = aggregate(rdn$Przesy³8.22 ~ poprawionedni, rdn, mean))
-barplot(sredniewgpdni[,2], names=c("pon", "wto", "sro", "czw", "pia", "sob", "nie"))
+(srednie_wg_pdni = aggregate(rdn$Przesy³8.22 ~ poprawione_dni, rdn, mean))
+barplot(srednie_wg_pdni[,2], names=c("pon", "wto", "sro", "czw", "pia", "sob", "nie"))
 # Faktycznie, po usunieciu swiat w 2010 roku wyszly sensowniejsze poniedzialki
 
 par(op) # Na koniec elegancko jest przywrocic domyslne ustawienia wykresow.

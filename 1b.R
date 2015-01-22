@@ -84,6 +84,8 @@ sprawdz = function(n) {
 };
 
 # Sprawdzmy, jakie wyniki daje funkcja sprawdz dla liczb 1..999
+# Funkcja sapply przyjmuje jako argumenty wektor oraz funkcje, a zwraca wyniku wektor
+# wartosci funkcji dla kazdego z elementow wejsciowego wektora
 table(sapply(1:999, sprawdz))
 
 # Z kazdej z tych liczb udalo sie dotrzec do 1 lub do 4. QED.
@@ -101,26 +103,26 @@ table(sapply(1:999, sprawdz))
 
 # Tablica do zapamietywania, czy z danej liczby da sie dotrzec do 1 lub 4 (TRUE gdy
 # tak, FALSE gdy nie, NA gdy jeszcze nie sprawdzono)
-liczbaok = rep(NA, 999)
+liczba_ok = rep(NA, 999)
 
-liczbaok[c(1, 4)] = TRUE # Z zalozenia
+liczba_ok[c(1, 4)] = TRUE # Z zalozenia
 
 # Wektor "liczbaok" bedzie zmieniany "z wewnatrz" funkcji sprawdzmadrze -- operator
 # przypisania do zmiennej globalnej to "<<-" (dziala tak samo jak <- lub =, ale
 # pozwala na pisanie po zmiennych globalnych, czyli takich zadeklarowanych poza
 # funkcja).
 
-sprawdzmadrze = function(n) {
-    if(is.na(liczbaok[n])) {
+sprawdz_madrze = function(n) {
+    if(is.na(liczba_ok[n])) {
         s = skc(n)
-        liczbaok[n] <<- FALSE
-        if(is.na(liczbaok[s])) {
-            sprawdzmadrze(s)
+        liczba_ok[n] <<- FALSE
+        if(is.na(liczba_ok[s])) {
+            sprawdz_madrze(s)
         };
-        liczbaok[n] <<- liczbaok[s]
+        liczba_ok[n] <<- liczba_ok[s]
     };
-    liczbaok[n]
+    liczba_ok[n]
 };
 
-table(sapply(1:999, sprawdzmadrze))
+table(sapply(1:999, sprawdz_madrze))
 

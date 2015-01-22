@@ -60,8 +60,8 @@ zakupy = read.csv2("Zakupy.csv")
 head(zakupy)
 
 # Podzial wzgledem plci
-zakupykobiet = zakupy[zakupy$PLEC=="K",]
-zakupymezczyzn = zakupy[zakupy$PLEC=="M",]
+zakupy_kobiet = zakupy[zakupy$PLEC=="K",]
+zakupy_mezczyzn = zakupy[zakupy$PLEC=="M",]
 
 # Nazwy liczonych statystyk (bo chcemy to potem wypisac ladnie ;) )
 wiersze = c(
@@ -75,7 +75,7 @@ wiersze = c(
     "Kurtoza"
 )
 
-xk = zakupykobiet$WYDATEK
+xk = zakupy_kobiet$WYDATEK
 qk = quantile(xk, prob=c(0.25, 0.5, 0.75), names=FALSE)
 Kobiety = c(
     srednia(xk),
@@ -87,9 +87,9 @@ Kobiety = c(
     skosnosc(xk),
     kurtoza(xk)
 )
-kolumnakobiet = data.frame(Kobiety, row.names=wiersze)
+kolumna_kobiet = data.frame(Kobiety, row.names=wiersze)
 
-xm = zakupymezczyzn$WYDATEK
+xm = zakupy_mezczyzn$WYDATEK
 qm = quantile(xm, prob=c(0.25, 0.5, 0.75), names=FALSE)
 Mezczyzni = c(
     srednia(xm),
@@ -101,10 +101,10 @@ Mezczyzni = c(
     skosnosc(xm),
     kurtoza(xm)
 )
-kolumnamezczyzn = data.frame(Mezczyzni, row.names=wiersze)
+kolumna_mezczyzn = data.frame(Mezczyzni, row.names=wiersze)
 
 # Wypisanie wyniku w formie ramki z nazwanymi wierszami
-cbind(kolumnakobiet, kolumnamezczyzn)
+cbind(kolumna_kobiet, kolumna_mezczyzn)
 
 
 # Zadanie 2.3

@@ -151,11 +151,11 @@ wz = read.csv2("Wyksz_Zarobki.csv")
 head(wz)
 
 (znaczenie = c(0, (1:10-0.5)*1000, 13500))
-wartoscizarobkow = znaczenie[wz$Zarobki]
-median(wartoscizarobkow)
+wartosci_zarobkow = znaczenie[wz$Zarobki]
+median(wartosci_zarobkow)
 
 # Na tym mozna by skonczyc, chyba ze sie nie spi tylko robi R...
-t = table(wartoscizarobkow)
+t = table(wartosci_zarobkow)
 licznosci = as.vector(t)
 n = sum(licznosci) # Liczba probek
 k = length(licznosci) # Liczba klas
@@ -171,10 +171,10 @@ for(i in 1:k) {
     koniec = podzial[i+1]
     if(wczesniej + licznosci[i] >= n * q) {
         wspolczynnik = (n * q - wczesniej) / licznosci[i]
-        porzadnamediana = poczatek + (koniec - poczatek) * wspolczynnik
+        porzadna_mediana = poczatek + (koniec - poczatek) * wspolczynnik
         break
     };
     wczesniej = wczesniej + licznosci[i]
 };
-porzadnamediana
+porzadna_mediana
 

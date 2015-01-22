@@ -3,7 +3,7 @@
 # Wystarczy wiedziec o istnieniu funkcji lfactorial (logarytm naturalny z silni.
 # Zatem lfactorial(n)/log(10) to bedzie logarytm dziesietny z silni (log to logarytm
 # naturalny). Liczba cyfr liczby to podloga z logarytmu dziesietnego powiekszona o 1.
-cyfrysilni = function(n) {
+cyfry_silni = function(n) {
     floor(lfactorial(n)/log(10))+1
 };
 
@@ -23,7 +23,7 @@ cyfrysilni = function(n) {
 # ciagle 0, wiec bedzie mozna przestac liczyc) mozna jednak caly czas dzielic przez 5,
 # zastepujac dotychczasowy wynik otrzymanym ilorazem.
 
-zeranakoncusilni = function(n) {
+zera_na_koncu_silni = function(n) {
     wynik = 0
     while(n >= 5) { # Jak n spadnie ponizej 5, to nic nowego juz nie dostaniemy.
         n = n %/% 5

@@ -39,8 +39,8 @@ head(wz)
 # wektor znaczenie bedzie zawietal zatem: 0, 500, 1500, ..., 8500, 9500, 13500
 (znaczenie = c(0, (1:10-0.5)*1000, 13500))
 
-wartoscizarobkow = znaczenie[wz$Zarobki]
+wartosci_zarobkow = znaczenie[wz$Zarobki]
 
 # No i to dobiero jest wynik
-mean(wartoscizarobkow)
+mean(wartosci_zarobkow)
 
