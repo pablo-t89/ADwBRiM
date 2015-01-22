@@ -91,7 +91,6 @@ rdane = rbind(rdane, mieszaj(dane[kolory=="zj",])[1:n,])
 # elementy o odpowiednich numerkach
 rkolory = kolory[rdane$Lp]
 
-
 # Ciekawe, czy normalnosc w grupach sie nam nie popsula
 op = par(mfrow=c(2,4))
 qqnorm(rdane$wzrost[rkolory=="bc"], main="bc")

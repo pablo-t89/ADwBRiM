@@ -55,7 +55,7 @@ skc = function(n) {
 # Chcemy rozwazac dowolna liczbe naturalna, ale zauwazmy, ze dla liczb k-cyfrowych
 # skc(n) wynosi co najwyzej 81*k, podczas gdy n wynosi co najmniej 10^(k-1).
 # Dla k>=4 zachodzi jednak 10^(k-1) > 81*k (kto nie wierzy, niech sobie to udowodni
-# pochodnymi). Skoro dla n>=100 funkcja skc jest scisle malejaca (a jest to funkcja z N
+# pochodnymi). Skoro dla n>=1000 funkcja skc jest scisle malejaca (a jest to funkcja z N
 # na N), to jesli x_0 = n, to x_n < 1000 (bo dopoki nie zejdziemy ponizej 1000 to na pewno
 # bedziemy przeskakiwac do coraz mniejszych liczb, a po zejsciu ponizej 1000 juz nie
 # wyjdziemy z przedzialu 1..999, bo najwieksza wartosc jaka przyjmuje tam skc to 243).

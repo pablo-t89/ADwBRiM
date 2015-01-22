@@ -84,6 +84,7 @@ cbind(
 #   i ma kurtoze 0; rozklady z bardziej wyraznym ekstremum w poblizu wartosci sredniej
 #   sa "leptokurtyczne" i maja dodatnia kurtoze)
 
+
 # Zadanie 2b.2
 
 # Ciekawe jest tylko liczenie sredniej geometrycznej.
@@ -107,21 +108,15 @@ srednia_p = function(x, p) {
 
 liczby = runif(1500, 1, 10)
 
-wiersze = c(
-    "Srednia harmoniczna",
-    "Srednia geometryczna",
-    "Srednia arytmetyczna",
-    "Srednia kwadrarowa"
-)
-
-wartosci = c(
-    srednia_p(liczby, -1),
-    srednia_p(liczby,  0),
-    srednia_p(liczby,  1),
-    srednia_p(liczby,  2)
-)
-
-data.frame(wartosci, row.names=wiersze)
+# Podobnie jak w poprzednim zadaniu, uzywam cbind aby uzyskac nazwana kolumne. Tym
+# razem jednak kolumna jest tworona w locie na podstawie wektora o nazwanych
+# elementach (ktory z kolei jest wynikiem funkcji c(...)).
+cbind("Wartosc" = c(
+    "Srednia harmoniczna" = srednia_p(liczby, -1),
+    "Srednia geometryczna" = srednia_p(liczby,  0),
+    "Srednia arytmetyczna" = srednia_p(liczby,  1),
+    "Srednia kwadrarowa" = srednia_p(liczby,  2)
+))
 
 
 # Zadanie 2b.3
