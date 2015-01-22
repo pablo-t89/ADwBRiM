@@ -59,52 +59,26 @@ kurtoza(wzrost)
 zakupy = read.csv2("Zakupy.csv")
 head(zakupy)
 
-# Podzial wzgledem plci
-zakupy_kobiet = zakupy[zakupy$PLEC=="K",]
-zakupy_mezczyzn = zakupy[zakupy$PLEC=="M",]
+# Obliczanie potrzebnych statystyk dla wektora liczb
+# Funkcja c(...) zostala wykorzystana w specyficzny sposob -- elementy wektora posiadaja
+# konkretne nazwy (zamiast wymienic po przecinkach wartosci elementow, zastosowany
+# zostal zapis "nazwa"=wartosc).
+statystyki = function(x) {
+    kwantyle = quantile(x, prob=c(0.25, 0.5, 0.75), names=FALSE)
+    c("Srednia" = srednia(x),
+      "Wariancja" = wariancja(x),
+      "Q1" = kwantyle[1],
+      "Mediana" = kwantyle[2],
+      "Q3" = kwantyle[3],
+      "Rozstep" = max(x) - min(x),
+      "Skosnosc" = skosnosc(x),
+      "Kurtoza" = kurtoza(x)
+    )
+};
 
-# Nazwy liczonych statystyk (bo chcemy to potem wypisac ladnie ;) )
-wiersze = c(
-    "Srednia",
-    "Wariancja",
-    "1-szy kwartyl",
-    "Mediana",
-    "3-ci kwartyl",
-    "Rozstep",
-    "Skosnosc",
-    "Kurtoza"
-)
-
-xk = zakupy_kobiet$WYDATEK
-qk = quantile(xk, prob=c(0.25, 0.5, 0.75), names=FALSE)
-Kobiety = c(
-    srednia(xk),
-    wariancja(xk),
-    qk[1],
-    qk[2],
-    qk[3],
-    max(xk) - min(xk),
-    skosnosc(xk),
-    kurtoza(xk)
-)
-kolumna_kobiet = data.frame(Kobiety, row.names=wiersze)
-
-xm = zakupy_mezczyzn$WYDATEK
-qm = quantile(xm, prob=c(0.25, 0.5, 0.75), names=FALSE)
-Mezczyzni = c(
-    srednia(xm),
-    wariancja(xm),
-    qm[1],
-    qm[2],
-    qm[3],
-    max(xm) - min(xm),
-    skosnosc(xm),
-    kurtoza(xm)
-)
-kolumna_mezczyzn = data.frame(Mezczyzni, row.names=wiersze)
-
-# Wypisanie wyniku w formie ramki z nazwanymi wierszami
-cbind(kolumna_kobiet, kolumna_mezczyzn)
+# Funkcja tapply pozwala zastosowac dowolna funkcje na danych podanych w pierwszym
+# argumencie z podzialem na grupy wedlug wartosci drugiego argumentu.
+tapply(zakupy$WYDATEK, zakupy$PLEC, statystyki)
 
 
 # Zadanie 2.3

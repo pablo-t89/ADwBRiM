@@ -9,7 +9,11 @@ kolumna = iris$Sepal.Length
 srednia = mean
 srednia_kwadratow = function(x) { mean(x^2) };
 wariancja = function(x) { srednia_kwadratow(x) - srednia(x)^2 };
-srednia_i_wariancja = function(x) { c(SREDNIA=srednia(x), WARIANCJA=wariancja(x)) };
+srednia_i_wariancja = function(x) {
+    c("Srednia"=srednia(x),
+      "Wariancja"=wariancja(x)
+    )
+};
 
 # Srednia i wariancja wzgledem gatunku
 tapply(kolumna, iris$Species, srednia_i_wariancja)

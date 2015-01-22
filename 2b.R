@@ -23,27 +23,16 @@ e_kurtozy = function(x) {
 
 
 # Zadanie 2b.1
-statystyki = function(x, n="Wartosc") {
-    wiersze = c(
-        "Srednia",
-        "Odch. standardowe",
-        "Skosnosc",
-        "Kurtoza",
-        "Minimum",
-        "Maksimum"
+# Obliczanie potrzebnych statystyk dla wektora liczb
+statystyki = function(x) {
+    kwantyle = quantile(x, prob=c(0.25, 0.5, 0.75), names=FALSE)
+    c("Srednia" = srednia(x),
+      "Odch. standardowe" = odchylenie_st(x),
+      "Skosnosc" = skosnosc(x),
+      "Kurtoza" = kurtoza(x),
+      "Minimum" = min(x),
+      "Maksimum" = max(x)
     )
-    wartosci = c(
-        srednia(x),
-        odchylenie_st(x),
-        skosnosc(x),
-        kurtoza(x),
-        min(x),
-        max(x)
-    )
-    # Bedziemy zwracac ladna ramke z opisami
-    wynik = data.frame(wartosci, row.names=wiersze)
-    names(wynik)[1] = n # Opcjonalnie: nazwa kolumny pobierana z drugiego argumentu
-    wynik
 };
 
 x = rnorm(100, 0, 1)
@@ -51,13 +40,17 @@ y = rnorm(100, 0, 1)
 px = sort(x)
 py = sort(y)
 
+# Funkcja cbind sluzy do laczenia kolumn w ramke. Role kolumn moga spelniac wektory
+# z danymi (jesli elementy wektorow sa nazwane i nazwy w poszczegolnych wektorach
+# sie zgadzaja, to stana sie one nazwami wierszy). W przykladzie ponizej dodatkowo
+# okreslone zostaly nazwy kolumn (wedlug zapisu "nazwa"=dane_kolumny).
 cbind(
-    statystyki(x, "x"),
-    statystyki(y, "y"),
-    statystyki(x+y, "x+y"),
-    statystyki(x-y, "x-y"),
-    statystyki(px+py, "p(x)+p(y)"),
-    statystyki(px-py, "p(x)-p(y)")
+    "x" = statystyki(x),
+    "y" = statystyki(y),
+    "x+y" = statystyki(x+y),
+    "x-y" = statystyki(x-y),
+    "p(x)+p(y)" = statystyki(px+py),
+    "p(x)-p(y)" = statystyki(px-py)
 )
 
 
