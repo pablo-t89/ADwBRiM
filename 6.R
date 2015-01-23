@@ -4,13 +4,20 @@ head(dane)
 
 # Operator ":" sprawia problemy przy rzeczach porzebnych do wykresow, wiec tym razem
 # mozna sobie zrobic samemu wektor kolorow oczu-i-wlosow naraz.
+
+# Zauwazmy, ze domyslnie po wczytaniu pliku csv kolumny z danymi tekstowymi sa typu
+# factor. Domyslnie nadawane poziomy to wszystkie wystepujace wsrod danych wartosci
+# (w kolejnosci alfabetycznej). Odpowiadaja im kolejne liczby naturalne (od 1).
+levels(dane$kolor.w³osów)
+levels(dane$kolor.oczu)
 kw = length(levels(dane$kolor.w³osów)) # Tyle wystepuje roznych kolorow wlosow (= 2)
-# Funkcja c(factor) faje wektor numerow etykier, wiec po zrobieniu tego mozna dzialac
+
+# Funkcja c(factor) daje wektor numerow etykiet, wiec po zrobieniu tego mozna dzialac
 # arytmetycznie na etykietach factora.
 kolory = c(dane$kolor.w³osów) + (c(dane$kolor.oczu) - 1) * kw
 kolory = factor(kolory) # Robimy z powrotem factor
-levels(kolory) = c("bc", "bj", "cc", "cj", "nc", "nj", "zc", "zj") # Nadajemy etykiety
-kolory
+# Nadajemy etykiety (pierwsza litera bedzie opisywala kolor oczu, a druga -- wlosow)
+levels(kolory) = c("bc", "bj", "cc", "cj", "nc", "nj", "zc", "zj")
 
 # Normalnosc w grupach...
 op = par(mfrow=c(2,4))
