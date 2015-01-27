@@ -60,39 +60,9 @@ par(op)
 # Test normalnosci probki
 shapiro.test(dlugosci)
 # Wyszlo p-value powyzej 0.05, czyli brak podstaw do odrzucenia hipotezy o normalnosci
-# probki. Ale dla malej probki to nie jest najmarzejszy test, lepiej badac to przez
-# zgodnosc (testem chi-kwadrat).
-
-# Zrobie podzial na 5 klas (bo to w sam raz tak okolo 0.75*sqrt(50) w taki sposob,
-# aby byly mniej-wiecej rownloiczne i zrobie test zgodnosci chi-kwadrat z rozkladem
-# normalnym.
-k = 5
-(podzial = quantile(dlugosci, c(0:k/k), names=FALSE))
-
-# Nieograniczony podzial
-npodzial = podzial
-npodzial[1] = -Inf
-npodzial[k+1] = +Inf
-npodzial
-
-(szereg = table(cut(dlugosci, npodzial)))
-
-# Estymowane parametry rozkladu normalnego
-mi = mean(dlugosci)
-sigma = sd(dlugosci)
-
-# Wektor opisujacy pstwa, z jakimi proba z przedzialu normalnego o parametrach
-# (mi, sigma) znajdzie sie w poszczegolnych przedzialach
-pstwa = pnorm(npodzial[2:(k+1)], mi, sigma) - pnorm(npodzial[1:k], mi, sigma)
-
-# Test chi-kwadrat -- p-value bedzie zle, bo estymujac mi i sigme zmienilismy liczbe
-# stopni swobody (chcemy k-3, a to nam liczy dla k-1), ale chociaz policzy nam
-# statystyke.
-(t = chisq.test(szereg, p=pstwa))
-# Interesujaca nas p-wartosc
-1 - pchisq(t$statistic, k-3)
-# Wyszlo ponad 0.05, wiec z poziomem ufnosci 95% mamy brak podstaw do odrzucenia
-# hipotezy o zgodnosci wygenerowanego szeregu rozdzielczego z rozkladem normalnym.
+# probki. Zwazywszy, ze jest to mala probka, test Shapiro-Wikla jest bardziej stosowny
+# niz badanie zgodnosci z rozkladem normalnym za pomoca testu zgodnosci chi kwadrat (!).
+# (Podziekowania za wsparcie merytoryczne dla pewnych PN, AK i JS).
 
 
 # Zadanie K.1.3

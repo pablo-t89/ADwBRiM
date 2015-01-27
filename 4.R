@@ -35,6 +35,7 @@ pstwa = pnorm(npodzial[2:(k+1)], mi, sigma) - pnorm(npodzial[1:k], mi, sigma)
 # stopni swobody powinnismy zastosowac o dwa mniej (czyli k-3), a zamiast odczytywac
 # p-value wprost z chisq.test, mozemy policzyc ja prawidlowo sami w oparciu o statystyke
 # zwracana przez test, w sposob przedstawiony ponizej.
+# (Podziekowania za wsparcie merytoryczne dla pewnych MS, GG i KS).
 
 1 - pchisq(t$statistic, k-3)
 
