@@ -30,7 +30,8 @@ qqline(iris$Petal.Width[iris$Species=="versicolor"], lwd=2.5, col="violet")
 qqnorm(iris$Petal.Width[iris$Species=="virginica"], main="virginica (szerokosc)")
 qqline(iris$Petal.Width[iris$Species=="virginica"], lwd=2.5, col="magenta")
 par(op)
-# Wyglada na dosc dobre dopasowanie, ale zrobimy tez Shapiro-Wilka, dla pewnosci
+# Wyglada na dosc dobre dopasowanie, poza tym ze szerokosci sa male i przyjmuja dosc
+# malo mozliwych wartosci. Wykonamy zatem tez testy Shapiro-Wilka.
 shapiro.test(iris$Petal.Length[iris$Species=="setosa"]) # Brak podst. do odrzucenia
 shapiro.test(iris$Petal.Length[iris$Species=="versicolor"]) # Brak podst. do odrzucenia
 shapiro.test(iris$Petal.Length[iris$Species=="virginica"]) # Brak podst. do odrzucenia
@@ -69,10 +70,9 @@ par(op)
 
 # Test normalnosci probki
 shapiro.test(dlugosci)
-# Wyszlo p-value nieznacznie ponizej 0.05, czyli sa podstawy do odrzucenia hipotezy
-# o normalnosci probki. Zwazywszy, ze jest to mala probka, test Shapiro-Wilka jest
-# bardziej stosowny niz badanie zgodnosci z rozkladem normalnym za pomoca testu
-# zgodnosci chi kwadrat (!).
+# Wyszlo p-value powyzej 0.05, czyli brak podstaw do odrzucenia hipotezy o normalnosci
+# probki. Zwazywszy, ze jest to mala probka, test Shapiro-Wikla jest bardziej stosowny
+# niz badanie zgodnosci z rozkladem normalnym za pomoca testu zgodnosci chi kwadrat (!).
 # (Podziekowania za wsparcie merytoryczne dla pewnych PN, AK i JS).
 
 

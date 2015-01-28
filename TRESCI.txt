@@ -142,7 +142,7 @@ Kolokwium -- Zestaw 1 [dzięki pewnym TJ i PS]
 
 1. Dla danych iris (dostępne bezpośrednio w R) policzyć średnią i wariancję z rozmiarów płatków (Petal) z podziałem na gatunki irysów (Species). Czy średnie rozmiary płatków irysów różnych gatunków różnią się w sposób istotny statystycznie?
 
-2. Narysować jądrowy estymator gęstości oraz wykres kwantyl-kwantyl sprawdzający czy długość kielicha irysa gatunku setosa ma rozkład normalny. Przetestować hipotezę o normalności tego rozkładu (uwaga - tych danych jest mało).
+2. Narysować jądrowy estymator gęstości oraz wykres kwantyl-kwantyl sprawdzający czy długość kielicha irysa gatunku setosa ma rozkład normalny. Przetestować hipotezę o normalności tego rozkładu (uwaga -- tych danych jest mało).
 
 3. Wśród studentów kierunków humanistycznych w kilku polskich miastach przeprowadzono ankietę na temat ulubionego poety współczesnego. Wstępnie opracowane (ograniczone do najpopularniejszych wyborów) wyniki ankiet zawiera plik Poeci.csv. Czy wybór ulubionego poety zależy od miejsca studiowania?
 
