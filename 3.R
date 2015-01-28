@@ -1,4 +1,8 @@
 # Zadanie 3.1
+# Sporzadzic wykres ramkowy (pudelkowy) dla wieku nowozencow (dane Sluby.csv).
+# (*) Czy liczba 25 wpada do przedzialu ufnosci (na poziomie 95%) dla mediany wieku
+# kobiety? A mezczyzny?
+
 sluby = read.csv2("Sluby.csv")
 head(sluby)
 
@@ -15,6 +19,11 @@ sm$conf[1] <= 25 && 25 <= sm$conf[2]
 
 
 # Zadanie 3.2
+# Dla danych z pliku wzrost.csv sporzadzic wykres zawierajacy:
+#  - histogram (okolo 15 klas)
+#  - jadrowy estymator gestosci
+#  - gestosc rozkladu normalnego o parametrach estymowanych na podstawie danych
+
 wzrost = read.csv2("Wzrost.csv", header=FALSE)[,1]
 hist(wzrost, breaks=14, freq=FALSE, col="yellow") # Histogram
 lines(density(wzrost), lwd=2.5, col="red") # Gestosc
@@ -26,6 +35,11 @@ lines(x, dnorm(x, mean(wzrost), sd(wzrost)), type="l", lwd=2.5, col="blue")
 
 
 # Zadanie 3.3
+# Dane z pliku wzrost.csv rozlozyc w szereg rozdzielczy:
+#  - o 15 klasach taki, ze minimum jest srodkiem pierwszego, a maksimum srodkiem
+#    ostatniego przedzialu
+#  - (*) o 6 klasach, roznej dlugosci, za to, w przyblizeniu, jednakowej licznosci.
+#     W oparciu o ten szereg narysowac histogram.
 
 # 15 klas, rowne przedzialy, min jest srodkiem pierwszego, a max -- ostatniego
 k = 15
@@ -41,6 +55,9 @@ hist(wzrost, podzial, freq=FALSE, col="yellow")
 
 
 # Zadanie 3.4
+# Dla danych z pliku rdn2010.csv przedstawic jak wyglada pobor energii w godzinach 8-22
+# w rozne dni tygodnia. Co by bylo, gdyby usunac z danych dni wolne od pracy?
+
 (rdn = read.csv2("RDN_2010.csv"))
 
 # Jak widac, na koncu sa jakies smieci -- pozbadzmy sie ich

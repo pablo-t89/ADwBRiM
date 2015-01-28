@@ -1,4 +1,8 @@
 # Zadanie K.2.1
+# Dla danych z pliku dane_13_1.csv, opisujacych decyzje o wyborze ulubionego sklepu
+# wielkopowierzchnowego, zbadac, czy istnieje zaleznosc miedzy wyborem sklepu
+# a wiekiem klienta.
+
 sklepy = read.csv2("dane_13_1.csv")
 head(sklepy)
 
@@ -13,7 +17,7 @@ table(sklepy$wiek, sklepy$sklep) / nrow(sklepy) * 100
 chisq.test(table(sklepy$wiek, sklepy$sklep), simulate.p.value=TRUE)
 # Zrodlo: http://stats.stackexchange.com/questions/81483/
 
-# Wynik testu chi-kwadrat przekroczy³ 0.05, wiec mamy brak podstaw do odrzucenia
+# Wynik testu chi-kwadrat przekroczyl 0.05, wiec mamy brak podstaw do odrzucenia
 # hipotezy o zgodnosci wieku klienta od marki wybranego sklepy wielkopowierzchniowego.
 # Skoro rozklady sa zgodne, to znaczy ze jedno NIE ZALEZY od drugiego.
 
@@ -56,6 +60,10 @@ anova(lm(wektor_wieku ~ sklepy$sklep))
 
 
 # Zadanie K.2.2
+# Dla danych iris (dostepne bezposrednio w R) policzyc srednia i wariancje z rozmiarow
+# kielicha (Sepal) z podzialem na gatunki kwiatow (Species). Czy srednie rozmiary
+# kielichow irysow roznych gatunkow roznia sie w sposob istotny statystycznie?
+
 head(iris)
 
 # Przydatne funkcje
@@ -105,6 +113,10 @@ anova(lm(iris$Sepal.Width ~ iris$Species))
 
 
 # Zadanie K.2.3
+# Dla danych iris wykonac model regresji liniowej opisujacy szerokosc kielicha
+# (Sepal.Width) w zaleznosci od jego dlugosci (Sepal.Length) dla gatunkow (Species)
+# setosa i versicolor. Dokonac oceny modelu regresji i sprawdzic zalozenia do tej oceny
+# konieczne.
 
 # Setosa
 se = iris[iris$Species=="setosa",]

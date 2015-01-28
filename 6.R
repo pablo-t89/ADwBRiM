@@ -1,4 +1,9 @@
 # Zadanie 6.1
+# Dla danych z pliku wzrost_zal.csv zbadac, jak kolor oczu i kolor wlosow wplywaja
+# na sredni wzrost czlowieka (z badanej populacji). Narysowac wykresy ramkowe
+# (uwaga: przedstawiaja mediane), oraz oba wykresy interakcji. Dopuscic rozna ilosc
+# obserwacji w grupach.
+
 dane = read.csv2("Wzrost_zal.csv")
 head(dane)
 
@@ -76,6 +81,8 @@ par(op)
 
 
 # Zadanie 6.2
+# Wykonac poprzednie zadanie ograniczajac (w sposob losowy) probke tak, aby
+# we wszystkich grupach bylo tyle samo obserwacji.
 
 # Funkcja mieszajaca wiersze ramki
 mieszaj = function(ramka) {
@@ -160,6 +167,9 @@ par(op)
 
 
 # Zadanie 6.3
+# Dla danych z pliku czas_wykonania.csv zbadac, jak zdobyte kwalifikacje oraz plec
+# pracownika wplywaja na czas wykonania czynnosci.
+
 cw = read.csv2("czas_wykonania.csv")
 head(cw)
 

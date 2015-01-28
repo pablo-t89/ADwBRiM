@@ -1,4 +1,8 @@
 # Zadanie 4.1
+# Przetestowac normalnosc dla danych z pliku wzrost.csv za pomoca testu chi-kwadrat,
+# w oparciu o szereg rozdzielczy o 20 klasach o, w przyblizeniu, jednakowej licznosci
+# empirycznej.
+
 wzrost = read.csv2("Wzrost.csv", header=FALSE)[,1]
 
 k = 20
@@ -50,6 +54,11 @@ lines(x, dnorm(x, mi, sigma), lwd=2.5, col="red")
 
 
 # Zadanie 4.2
+# Przetestowac normalnosc dla danych z pliku wzrost.csv za pomoca testu chi-kwadrat,
+# w oparciu o szereg rozdzielczy o 15 klasach o jednakowej licznosci teoretycznej
+# (przyklad z wykladu). Nastepnie wykonac ten sam test, ale przed utworzeniem szeregu
+# rozdzielczego dokonac zaszumienia danych, zaburzajac je o wartosc z rozkladu
+# jednostajnego na przedziale [-1/2, 1/2].
 
 # zmienne wzrost, mi i sigma zostaja z poprzedniego podpunktu
 
@@ -93,6 +102,9 @@ par(op)
 
 
 # Zadanie 4.3
+# Dla wszystkich (szesciu) par roznego wyksztalcenia (dane zakupy.csv) wykonac testy
+# rownosci przecietnego wydatku miedzy grupami osob o danym wyksztalceniu.
+
 zakupy = read.csv2("Zakupy.csv")
 
 p = zakupy$WYDATEK[zakupy$WYKSZTALCENIE=="P"]

@@ -23,6 +23,13 @@ e_kurtozy = function(x) {
 
 
 # Zadanie 2b.1
+# Napisac funkcje statystyki(x), ktora dla zadanego wektora x bedzie wyznaczac
+# podstawowe statystyki opisowe z jego wspolrzednych (przynajmniej srednia, odch.
+# standardowe, skosnosc, kurtoze, mininum, maksimum). Nastepnie wylosowac po 100
+# liczb z rozkladu N(0,1) zapisujac wyniki w zmiennych x i y oraz wykonac te funkcje
+# dla x, y, x+y, x-y, p(x)+p(y), p(x)-p(y), gdzie p(w) oznacza wektor zawierajacy
+# uporzadkowane wspolrzedne wektora w.
+
 # Obliczanie potrzebnych statystyk dla wektora liczb
 statystyki = function(x) {
     kwantyle = quantile(x, prob=c(0.25, 0.5, 0.75), names=FALSE)
@@ -86,6 +93,10 @@ cbind(
 
 
 # Zadanie 2b.2
+# Napisac funkcje srednia_p(x, p) obliczajaca srednia potegowa rzedu p elementow
+# wektora x. Nastepnie dla 1500 liczb pseudolosowych, wylosowanych z rozkladu
+# jednostajnego na przedziale [1,10], obliczyc srednia arytmetyczna, srednia
+# harmoniczna, srednia geometryczna oraz srednia kwadratowa (potegowa rzedu 2).
 
 # Ciekawe jest tylko liczenie sredniej geometrycznej.
 # Trzeba je obsluzyc osobno dlatego, ze inaczej byloby podnoszenie do potegi 1/0.
@@ -120,6 +131,11 @@ cbind("Wartosc" = c(
 
 
 # Zadanie 2b.3
+# Kierowca Formuly 1 podczas wyscigu o Grand Prix Monako (na torze Monte Carlo,
+# a zreszta, czy ma to jakies znaczenie?) przejezdzal kolejne okrazenia toru ze
+# srednimi predkosciami podanymi w pliku Formula1.csv. Z jaka srednia predkoscia
+# przejechal caly wyscig?
+
 predkosci = read.csv2("Formula1.csv", header=FALSE)[,1]
 
 # Wynikiem jest srednia harmoniczna. Kazde okrazenie ma dlugosc s_i = s oraz
@@ -135,6 +151,8 @@ predkosci = read.csv2("Formula1.csv", header=FALSE)[,1]
 
 
 # Zadanie 2b.4
+# Obliczyc mediane zarobkow dla danych z pliku Wyk_Zarobki.xls
+
 wz = read.csv2("Wyksz_Zarobki.csv")
 head(wz)
 

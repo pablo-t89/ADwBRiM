@@ -1,4 +1,8 @@
 # Zadanie K.1.1
+# Dla danych iris (dostepne bezposrednio w R) policzyc srednia i wariancje z rozmiarow
+# platkow (Petal) z podzialem na gatunki irysow (Species). Czy srednie rozmiary platkow
+# irysow roznych gatunkow roznia sie w sposob istotny statystycznie?
+
 head(iris)
 
 # Przydatne funkcje
@@ -53,6 +57,9 @@ anova(lm(iris$Petal.Width ~ iris$Species))
 
 
 # Zadanie K.1.2
+# Narysowac jadrowy estymator gestosci oraz wykres kwantyl-kwantyl sprawdzajacy
+# czy dlugosc kielicha irysa gatunku setosa ma rozklad normalny. Przetestowac hipoteze
+# o normalnosci tego rozkladu (uwaga -- tych danych jest malo).
 
 dlugosci = iris$Sepal.Length[iris$Species=="setosa"]
 
@@ -77,6 +84,11 @@ shapiro.test(dlugosci)
 
 
 # Zadanie K.1.3
+# Wsrod studentow kierunkow humanistycznych w kilku polskich miastach przeprowadzono
+# ankiete na temat ulubionego poety wspolczesnego. Wstepnie opracowane (ograniczone do
+# najpopularniejszych wyborow) wyniki ankiet zawiera plik Poeci.csv. Czy wybor
+# ulubionego poety zalezy od miejsca studiowania?
+
 poeci = read.csv2("Poeci.csv", header=F, col.names=c("Miasto", "Poeta"))
 head(poeci)
 

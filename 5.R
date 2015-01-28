@@ -1,4 +1,7 @@
 # Zadanie 5.1
+# Podzielic dane z pliku zakupy.csv na trzy mniej wiecej jednakowo liczne grupy
+# ze wzgledu na wiek klienta (powiedzmy Y, M, O). Nastepnie zbadac, czy roznica
+# srednich wydatkow w tych grupach jest istotna statystycznie.
 
 zakupy = read.csv2("Zakupy.csv")
 head(zakupy)
@@ -49,6 +52,8 @@ anova(lm(zakupy$WYDATEK ~ poziom_wieku))
 
 
 # Zadanie 5.2
+# Wykonac zadanie podobne do poprzedniego, z tym, ze podzial na grupy uwzgledniac ma
+# takze plec klienta, dostajac w ten sposob 6 grup (powiedzmy YW, MW, OW, YM, MM, OM).
 
 # Tutaj jest duzo problemow, np. taki, ze grupy nie sa rownoliczne, tzn.
 table(poziom_wieku:zakupy$PLEC)

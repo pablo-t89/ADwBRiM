@@ -1,4 +1,6 @@
 # Zadanie 1c.1
+# Napisac funkcje, ktora dla zadanego argumentu n podaje ile cyfr ma n!. Funkcja
+# powinna dzialac dla duzych n.
 
 # Wystarczy wiedziec o istnieniu funkcji lfactorial (logarytm naturalny z silni.
 # Zatem lfactorial(n)/log(10) to bedzie logarytm dziesietny z silni (log to logarytm
@@ -9,6 +11,8 @@ cyfry_silni = function(n) {
 
 
 # Zadanie 1c.2
+# Napisac funkcje, ktora dla zadanego argumentu n podaje ile zer na koncu ma
+# liczba n!.
 
 # Ciekawostka: liczba zer na koncu rozwiniecia dziesietnego liczby n to najwieksze
 # takie k, dla ktorego 10^k jest dzielnikiem n. Zatem jest to najwieksze takie k,

@@ -38,6 +38,12 @@ przedzial_ufnosci_wariancji = function(x, a) {
 
 
 # Zadanie 2.1
+# Dla danych zawartych w pliku wzrost.csv (probka statystyczna opisujaca wzrost
+# doroslego mezczyzny w Polsce) wyznaczyc podstawowe statystyki opisowe:
+#  - mediana, kwartyle, rozstep;
+#  - srednia, wariancja - wraz z przedzialem ufnosci na poziomie 0,9;
+#  - skosnosc i kurtoza
+
 wzrost = read.csv2("Wzrost.csv", header=FALSE)[,1]
 
 q = quantile(wzrost, prob=c(0.25, 0.5, 0.75), names=FALSE)
@@ -56,6 +62,13 @@ kurtoza(wzrost)
 
 
 # Zadanie 2.2
+# Dla danych zawartych w pliku zakupy.csv (probka opisujaca kwote zakupow w sklepie
+# wielkopowierzchniowym w zaleznosci od pewnych cech klienta) obliczyc wybrane
+# statystyki z podzialem na kobiety i mezczyzn:
+#  - srednia, wariancja;
+#  - mediana, kwartyle, rozstep;
+#  - skosnosc i kurtoza
+
 zakupy = read.csv2("Zakupy.csv")
 head(zakupy)
 
@@ -82,6 +95,10 @@ tapply(zakupy$WYDATEK, zakupy$PLEC, statystyki)
 
 
 # Zadanie 2.3
+# Wyznaczyc wartosc oczekiwana i wariancje rozkladu podanego w tabeli:
+# wartosc  1     2     3     4     5
+# p-stwo   7/30  1/6   4/15  2/15  1/5
+
 wartosci = 1:5
 pstwa = c(7/30, 1/6, 4/15, 2/15, 1/5)
 
@@ -96,6 +113,14 @@ ex2 = weighted.mean(wartosci^2, pstwa)
 
 
 # Zadanie 2.4
+# Napisac funkcje pu_test(n, mi, sigma, poziom), ktora:
+#  - losuje n liczb z rozkladu normalnego N(mi, sigma)
+#  - w oparciu o uzyskane dane wyznacza przedzial ufnosci [x, y] dla sredniej na
+#    poziomie poziom (przyjmujac nieznana wariancje)
+#  - zwraca wartosc TRUE, jesli mi wpada do wyznaczonego przedzialu i FALSE
+#    w przeciwnym razie.
+# Utworzona funkcje wykorzystac do nastepujacego eksperymentu: policzyc ile razy
+# wypadnie falsz przy 1000 wykonaniach dla n=100 i poziom = 0.9.
 
 # rnorm -- losowanie wektora liczb z przedzialu normalnego o zadanych parametrach
 # replicate -- powtarzanie tego samego wiele razy

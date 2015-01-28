@@ -1,14 +1,19 @@
 # Zadanie 1.1
+# Utworzyc na trzy sposoby: (c, :, seq) wektor skladajacy sie z elementow 4,3,2,1,0.
+
 c(4,3,2,1,0)
 4:0
 seq(4, 0)  
 
 
 # Zadanie 1.2
+# Wypisac (mozliwie jak najkrotsza instrukcja) trzecie potegi liczb od 1 do 20.
+
 (1:20)^3  
 
 
-# Zadanie 1.3 
+# Zadanie 1.3
+# Wypisac (mozliwie jak najkrotsza instrukcja) kwadraty liczb parzystych od 10 do 30.
 
 seq(10,30,2)^2 # bierzemy same liczby parzyste i liczymy ich kwadraty 
 
@@ -18,6 +23,7 @@ seq(10,30,2)^2 # bierzemy same liczby parzyste i liczymy ich kwadraty
 
 
 # Zadanie 1.4
+# Podac (mozliwie jak najkrotsza instrukcja) sume szescianow liczb od 1 do 98.
 
 sum((1:98)^3) 
 # Spostrzezenie: 1^3+...+n^3 = (n*(n+1)/2)^2 -- to jest znany wzor. Najprosciej
@@ -27,6 +33,7 @@ sum((1:98)^3)
 
 
 # Zadanie 1.5
+# Obliczyc sredni zarobek dla danych z pliku Wyk_Zarobki.xls
 
 # Plik .csv z pliku .xls najlepiej sobie zrobic samemu. Jezeli pola beda rozdzielone
 # srednikiem, to R sobie z tym poradzi najlepiej (nie trzeba bedzie podawac

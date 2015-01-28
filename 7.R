@@ -1,4 +1,10 @@
 # Zadanie 7.0
+# Dla danych zapisanych w pliku raty.csv:
+#  - Utworzyc liniowe modele regresji opisujace zaleznosc wydatku od dochodow
+#    klienta z uwzglednieniem decyzji o zakupie ratalnym:
+#     - przyjmujac, ze linie regresji, dla roznych decyzji o ratach, sa rownolegle
+#     - nie przyjmujac powyzszego zalozenia
+#  - Dla obu modeli narysowac wykresy linii regresji (oraz punktow danych)
 
 raty = read.csv2("Raty.csv")
 head(raty)
@@ -51,6 +57,9 @@ lines(skrajne$Dochody, predict(model_z_ratami, skrajne), lwd=2.5, col="red")
 
 
 # Zadanie 7.1
+# Utworzyc (i narysowac wykres) model regresji liniowej opisujacy zaleznosc wydatku
+# od (rownoczesnie) dochodow i wieku klienta
+
 model_dw = lm(Wydatek ~ Dochody + Wiek, data=raty)
 summary(model_dw)
 
@@ -81,6 +90,9 @@ segments(punkty_emp$x, punkty_emp$y, punkty_teo$x, punkty_teo$y, col="lightpink"
 
 
 # Zadanie 7.2
+# Utworzyc (i narysowac wykres) model regresji opisujacy decyzje o zakupie na raty
+# w zaleznosci od wieku klienta.
+
 raty01 = c(raty$Raty)-1
 model_w = glm(raty01 ~ Wiek, data=raty, family="binomial")
 summary(model_w)
@@ -115,6 +127,9 @@ sum(raty$Raty == przewidziane_decyzje) / length(raty$Raty)
 
 
 # Zadanie 7.3
+# Dla danych z pliku test_regresji.csv dopasowac krzywa obrazujaca zaleznosc y od x
+# poprzez model regresji (parametrycznej) wielomianem stopnia 2. Narysowac wykres.
+
 tr = read.csv2("test_regresji.csv")
 head(tr)
 
@@ -130,6 +145,10 @@ lines(x$x, predict(model_kw, x), lwd=2.5, col="red")
 
 
 # Zadanie 7.4
+# Dla powyzszych danych dopasowac krzywa metoda regresji lokalnie wielomianowej,
+# z uzyciem domyslnych opcji, a nastepnie zaobserwowac wplyw parametrow sterujacych
+# (span i degree) na sposob dopasowania. Narysowac odpowiednie wykresy.
+
 model_domyslny = loess(y ~ x, data=tr)
 summary(model_domyslny)
 # Domyslnie wyszedl wielomian stopnia drugiego ze span=0.75
@@ -174,6 +193,10 @@ par(op)
 
 
 # Zadanie 7.5
+# Dla tych samych danych dopasowac krzywa metoda gladkich funkcji sklejanych
+# z uzyciem domyslnych opcji. Nastepnie zaobserwowac wplyw parametru spar na
+# sposob dopasowania. Narysowac odpowiednie wykresy.
+
 model_ls_domyslny = smooth.spline(tr$y ~ tr$x)
 summary(model_ls_domyslny)
 

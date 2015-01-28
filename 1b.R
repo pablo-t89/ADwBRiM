@@ -1,4 +1,12 @@
 # Zadanie 1b.1
+# Wyznaczyc macierz odwrotna do iloczynu macierzy
+# [  5   1 ]
+# [  2  -1 ]
+# [ -2   8 ]
+# i
+# [  1   3   3 ]
+# [  2   1   5 ].
+
 (A = matrix(c( 5,  1,  2, -1, -2,  8), nrow=3, ncol=2, byrow=TRUE))
 (B = matrix(c( 1,  3,  3,  2,  1,  5), nrow=2, ncol=3, byrow=TRUE))
 
@@ -15,6 +23,9 @@ det(C) # tak bardzo zero
 
 
 # Zadanie 1b.2
+# Napisac funkcje sumdiag(A), ktora dla macierzy A zwraca w wyniku macierz diagonalna
+# zawierajaca na glownej przekatnej, na i-tej pozycji, sume elementow lezacych w i-tym
+# wierszu i w i-tej kolumnie macierzy A.
 
 sumdiag = function(A) {
     # Wynikiem bedzie macierz kwadratowa, ktora ma co najwyzej tyle kolumn i wierzy co A,
@@ -40,6 +51,10 @@ sumdiag(A) # Wynik dla przykladowej macierzy
 
 
 # Zadanie 1b.3
+# Niech skc:N->N oznacza funkcje, ktora naturalnej liczbie n przyporzadkowuje sume
+# kwadratow jej cyfr. Udowodnic, ze jesli dla dowolnej liczby naturalnej x utworzymy
+# ciag liczbowy, zadany przez warunki x_0=x, x_i=skc(x_(i-1)) dla i calkowitego
+# dodatniego, to bedzie on zawieral liczbe 1 lub 4.
 
 skc = function(n) {
     wynik = 0
