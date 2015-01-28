@@ -123,6 +123,9 @@ se = iris[iris$Species=="setosa",]
 
 model_se = lm(Sepal.Width ~ Sepal.Length, data=se)
 summary(model_se) # Ocena modelu regresji
+# R^2 i skorygowane R^2 rzedu 0.55; czyli cos sie udalo dopasowac, ale punkty
+# nie ukladaja sie jakos doslownie na wyznaczonej linii (do 1 jeszcze troche brakuje).
+# (Propsy dla TJ.)
 
 # Skrajne punkty
 min_se = min(se$Sepal.Length)
@@ -139,6 +142,8 @@ ve = iris[iris$Species=="versicolor",]
 
 model_ve = lm(Sepal.Width ~ Sepal.Length, data=ve)
 summary(model_ve) # Ocena modelu regresji
+# R^2 i skorygowane R^2 rzedu 0.27; zatem rozbieznosc punktow empirycznych od
+# wyznaczonej linii mozna okreslic jako znaczna.
 
 # Skrajne punkty
 min_ve = min(ve$Sepal.Length)
