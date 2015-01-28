@@ -1,10 +1,6 @@
 # Zadanie K.1.1
 head(iris)
 
-# Z czego liczyc te stednie i wariancje? Wybralem dlugosc lisci kielicha kwiatu,
-# bo to pierwsza kolumna; mozna w tej linijce wpisac cos innego.
-kolumna = iris$Sepal.Length
-
 # Przydatne funkcje
 srednia = mean
 srednia_kwadratow = function(x) { mean(x^2) };
@@ -16,34 +12,48 @@ srednia_i_wariancja = function(x) {
 };
 
 # Srednia i wariancja wzgledem gatunku
-tapply(kolumna, iris$Species, srednia_i_wariancja)
+tapply(iris$Petal.Length, iris$Species, srednia_i_wariancja) # dlugosc
+tapply(iris$Petal.Width, iris$Species, srednia_i_wariancja) # szerokosc
 
 # Ocena normalnosci w grupach na podstawie wykresow
-op = par(mfrow=c(1,3))
-qqnorm(kolumna[iris$Species=="setosa"], main="setosa")
-qqline(kolumna[iris$Species=="setosa"], lwd=2.5, col="purple")
-qqnorm(kolumna[iris$Species=="versicolor"], main="versicolor")
-qqline(kolumna[iris$Species=="versicolor"], lwd=2.5, col="violet")
-qqnorm(kolumna[iris$Species=="virginica"], main="virginica")
-qqline(kolumna[iris$Species=="virginica"], lwd=2.5, col="magenta")
+op = par(mfrow=c(2,3))
+qqnorm(iris$Petal.Length[iris$Species=="setosa"], main="setosa (dlugosc)")
+qqline(iris$Petal.Length[iris$Species=="setosa"], lwd=2.5, col="purple")
+qqnorm(iris$Petal.Length[iris$Species=="versicolor"], main="versicolor (dlugosc)")
+qqline(iris$Petal.Length[iris$Species=="versicolor"], lwd=2.5, col="violet")
+qqnorm(iris$Petal.Length[iris$Species=="virginica"], main="virginica (dlugosc)")
+qqline(iris$Petal.Length[iris$Species=="virginica"], lwd=2.5, col="magenta")
+qqnorm(iris$Petal.Width[iris$Species=="setosa"], main="setosa (szerokosc)")
+qqline(iris$Petal.Width[iris$Species=="setosa"], lwd=2.5, col="purple")
+qqnorm(iris$Petal.Width[iris$Species=="versicolor"], main="versicolor (szerokosc)")
+qqline(iris$Petal.Width[iris$Species=="versicolor"], lwd=2.5, col="violet")
+qqnorm(iris$Petal.Width[iris$Species=="virginica"], main="virginica (szerokosc)")
+qqline(iris$Petal.Width[iris$Species=="virginica"], lwd=2.5, col="magenta")
 par(op)
 # Wyglada na dosc dobre dopasowanie, ale zrobimy tez Shapiro-Wilka, dla pewnosci
-shapiro.test(kolumna[iris$Species=="setosa"]) # Brak podstaw do odrzucenia hipotezy
-shapiro.test(kolumna[iris$Species=="versicolor"]) # j.w.
-shapiro.test(kolumna[iris$Species=="virginica"]) # j.w.
-# Brak podstaw do odrzucenia hipotezy o tym, ze kazda z grup jest normalna
+shapiro.test(iris$Petal.Length[iris$Species=="setosa"]) # Brak podst. do odrzucenia
+shapiro.test(iris$Petal.Length[iris$Species=="versicolor"]) # Brak podst. do odrzucenia
+shapiro.test(iris$Petal.Length[iris$Species=="virginica"]) # Brak podst. do odrzucenia
+shapiro.test(iris$Petal.Width[iris$Species=="setosa"]) # Sa podst. do odrzucenia
+shapiro.test(iris$Petal.Width[iris$Species=="versicolor"]) # Sa podst. do odrzucenia
+shapiro.test(iris$Petal.Width[iris$Species=="virginica"]) # Brak podst. do odrzucenia
+# Dlugosci sa normalne, ale szerokosci niekoniecznie. Po wykresach kwantyl-kwantyl
+# mozna jednak wnioskowac, ze przyczyna jest zbyt mala dokladnosc pomiaru szerokosci
+# (liczba mozliwych wartosci, jaka moze przyjmowac szerokosc jest zbyt mala.
 
 # h0: roznice srednich w grupach sa istotne statystyczne
-anova(lm(kolumna ~ iris$Species))
-# Pr(>F) mniejsze od 0.05, wiec z poziomem ufnosci 95% stwierdzamy brak podstaw do
-# odrzucenia h0.
+anova(lm(iris$Petal.Length ~ iris$Species))
+anova(lm(iris$Petal.Width ~ iris$Species))
+# Pr(>F) mniejsze od 0.05 (dla obu wymiarow), wiec z poziomem ufnosci 95% stwierdzamy
+# brak podstaw do odrzucenia h0. Dla dlugosci platka jest to dosc bezpieczne, lecz
+# szerokosci platkow nie sa normalne w grupach, wiec wynik nie jest pewny.
 # 
 # Zrodlo: http://xkcd.com/882/
 
 
 # Zadanie K.1.2
 
-dlugosci = iris$Petal.Length[iris$Species=="setosa"]
+dlugosci = iris$Sepal.Length[iris$Species=="setosa"]
 
 op = par(mfrow=c(1,2))
 
@@ -59,9 +69,10 @@ par(op)
 
 # Test normalnosci probki
 shapiro.test(dlugosci)
-# Wyszlo p-value powyzej 0.05, czyli brak podstaw do odrzucenia hipotezy o normalnosci
-# probki. Zwazywszy, ze jest to mala probka, test Shapiro-Wikla jest bardziej stosowny
-# niz badanie zgodnosci z rozkladem normalnym za pomoca testu zgodnosci chi kwadrat (!).
+# Wyszlo p-value nieznacznie ponizej 0.05, czyli sa podstawy do odrzucenia hipotezy
+# o normalnosci probki. Zwazywszy, ze jest to mala probka, test Shapiro-Wilka jest
+# bardziej stosowny niz badanie zgodnosci z rozkladem normalnym za pomoca testu
+# zgodnosci chi kwadrat (!).
 # (Podziekowania za wsparcie merytoryczne dla pewnych PN, AK i JS).
 
 

@@ -62,7 +62,7 @@ Utworzoną funkcję wykorzystać do następującego eksperymentu: policzyć ile 
 
 Zadania 2b
 
-1. Napisać funkcję statystyki(x), która dla zadanego wektora x będzie wyznaczać podstawowe statystyki opisowe z jego współrzędnych (przynajmniej średnią, odch. standardowe, skośność, kurtozę, mininum, maksimum). Następnie wylosować po 100 liczb z rozkładu N(0,1) zapisując wyniki w zmiennych x i y oraz wykonać tę funkcję dla x, y, x+y, x-y, p(x)+p( y), p(x)-p( y), gdzie p(w) oznacza wektor zawierający uporządkowane współrzędne wektora w.
+1. Napisać funkcję statystyki(x), która dla zadanego wektora x będzie wyznaczać podstawowe statystyki opisowe z jego współrzędnych (przynajmniej średnią, odch. standardowe, skośność, kurtozę, mininum, maksimum). Następnie wylosować po 100 liczb z rozkładu N(0,1) zapisując wyniki w zmiennych x i y oraz wykonać tę funkcję dla x, y, x+y, x-y, p(x)+p(y), p(x)-p(y), gdzie p(w) oznacza wektor zawierający uporządkowane współrzędne wektora w.
 
 2. Napisać funkcję srednia_p(x, p) obliczającą średnią potęgową rzędu p elementów wektora x. Następnie dla 1500 liczb pseudolosowych, wylosowanych z rozkładu jednostajnego na przedziale [1,10], obliczyć średnią arytmetyczną, średnią harmoniczną, średnią geometryczną oraz średnią kwadratową (potęgową rzędu 2).
 
@@ -138,12 +138,21 @@ Zadania 7
 
 
 
-Kolokwium -- Zestaw 1
+Kolokwium -- Zestaw 1 [dzięki pewnym TJ i PS]
 
-1. Dla zbioru danych o irysach (jest wbudowany w język R, od razu dostępny pod zmienną iris) obliczyć średnią i wariancję ze względu na gatunek (Species). Czy różnice w średnich są istotne statystycznie?
+1. Dla danych iris (dostępne bezpośrednio w R) policzyć średnią i wariancję z rozmiarów płatków (Petal) z podziałem na gatunki irysów (Species). Czy średnie rozmiary płatków irysów różnych gatunków różnią się w sposób istotny statystycznie?
 
-2. Narysuj jądrowy estymator gęstości oraz wykres kwantyl-kwantyl pozwalający określić normalność rozkładu długości kielicha setosy (Petal.Length – setosa).
-Sprawdź normalność rozkładu. Uwaga: próbka jest mała.
+2. Narysować jądrowy estymator gęstości oraz wykres kwantyl-kwantyl sprawdzający czy długość kielicha irysa gatunku setosa ma rozkład normalny. Przetestować hipotezę o normalności tego rozkładu (uwaga - tych danych jest mało).
 
-3.Na podstawie zbioru danych poeci.csv sprawdzić, czy zachodzi zależność między miastem, a ulubionym poetą.
+3. Wśród studentów kierunków humanistycznych w kilku polskich miastach przeprowadzono ankietę na temat ulubionego poety współczesnego. Wstępnie opracowane (ograniczone do najpopularniejszych wyborów) wyniki ankiet zawiera plik Poeci.csv. Czy wybór ulubionego poety zależy od miejsca studiowania?
+
+
+
+Kolokwium -- Zestaw 2 [dzięki pewnemu PS]
+
+1. Dla danych z pliku dane_13_1.csv, opisujących decyzję o wyborze ulubionego sklepu wielkopowierzchnowego, zbadać, czy istnieje zależność między wyborem sklepu a wiekiem klienta.
+
+2. Dla danych iris (dostępne bezpośrednio w R) policzyć średnią i wariancję z rozmiarów  kielicha (Sepal) z podziałem na gatunki kwiatów (Species). Czy średnie rozmiary kielichów irysów różnych gatunków różnią się w sposób istotny statystycznie?
+
+3. Dla danych iris wykonać model regresji liniowej opisujący szerokość kielicha  (Sepal.Width) w zależności od jego długości (Sepal.Length) dla gatunków (Species) setosa i versicolor. Dokonać oceny modelu regresji i sprawdzić założenia do tej oceny konieczne.
 
