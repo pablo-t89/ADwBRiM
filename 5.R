@@ -35,11 +35,12 @@ shapiro.test(zakupy$WYDATEK[poziom_wieku=="O"]) # Nie
 anova(lm(zakupy$WYDATEK ~ poziom_wieku))
 
 # 
-# UWAGA: hipoteza zerowa do ANOVY jest taka, ze dane sa od siebie zalezne, a roznica
-# srednich miedzy grupami JEST istotna statystycznie.
-# Interpretacja: jak Pr(>F) wychodzi duze, to odrzucamy hipoteze zerowa. Brak podstaw
-# jest jak wyjdzie mniej niz 0.05. Jak wychodzi jakos bardzo malo to R wypisuje gwiazdki
-# przy tej wartosci (im wiecej gwiazdek, tym lepiej sie udalo).
+# UWAGA: hipoteza alternatywna do ANOVY jest taka, ze dane sa od siebie zalezne,
+# a roznica srednich miedzy grupami JEST istotna statystycznie.
+# Interpretacja: jak Pr(>F) wychodzi duze, to odrzucamy hipoteze alternatywna. Brak
+# podstaw jest jak wyjdzie mniej niz 0.05. Jak wychodzi jakos bardzo malo to R wypisuje
+# gwiazdki przy tej wartosci (im wiecej gwiazdek, tym lepiej sie udalo znalezc
+# zaleznosc).
 # 
 # "Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1", tzn. zeby byl poziom
 # ufnosci 0.95 (nasze slynne 0.05) to musi byc przynajmniej gwiazdka przy wyniku.
